@@ -1,19 +1,21 @@
 html, body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 .video-container {
-  width: 100%;
-  background: #000;
-  height: 300px;
+    width: 100%;
+    background: #000;
+    height: 300px;
 }
+
 .transparent {
-  background: transparent;
+    background: transparent;
 }
+
 .video-container iframe {
-  position: absolute;
+    position: absolute;
 }

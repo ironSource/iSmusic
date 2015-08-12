@@ -1,12 +1,21 @@
 (function () {
-    function MusicController($scope, musicService, $q, $log, $http) {
+    function MusicController($scope, musicService, $q, $log, $http, VideosService) {
+        //init()
+        function init() {
+            $scope.youtube = VideosService.getYoutube();
+            $scope.results = VideosService.getResults();
+            $scope.upcoming = VideosService.getUpcoming();
+            $scope.history = VideosService.getHistory();
+            $scope.playlist = true;
+        }
 
         $scope.search = function () {
             musicService.get($scope.searchQuery, 5)
                 .then(function (data) {
                     $scope.videos = data;
-                    console.log(data[0])
-                    $scope.video = data[0];
+                    console.log(data[0]);
+                    $scope.video = data[1];
+                    //VideosService.launchPlayer(data[0].id, data[0].title);
                 });
         };
 
@@ -36,6 +45,6 @@
 
     angular
         .module('music')
-        .controller('musicController', ['$scope', 'musicService', '$q', '$log', '$http', MusicController]);
+        .controller('musicController', ['$scope', 'musicService', '$q', '$log', '$http','VideosService', MusicController]);
 
 })();

@@ -8,7 +8,9 @@ var express = require('express')
 var Grant = require('grant-express')
     , grant = new Grant(require('./config.js'))
 
-var app = express()
+var app = express();
+var users = {};
+
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -30,7 +32,9 @@ app.get('/music', function (req, res) {
     });
 
 });
+app.get('/friend/:id', function (){
 
+});
 app.get('/handle_facebook_callback', function (req, res) {
     console.log(req.query)
     req.session.access_token = req.query.access_token;
@@ -40,6 +44,7 @@ app.get('/handle_facebook_callback', function (req, res) {
             console.log(!data ? 'error occurred' : data.error);
             return res.end("Data Error!");
         }
+        //users[data.id]
         res.end(JSON.stringify(data));
     });
 
