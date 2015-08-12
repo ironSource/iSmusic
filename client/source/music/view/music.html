@@ -24,11 +24,9 @@
         <section ng-if="user.friends">
             <md-subheader class="md-primary">friends</md-subheader>
             <md-list ng-if="user.friends" layout-padding>
-                <md-list-item class="md-3-line" ng-repeat="friend in user.friends.data">
+                <md-list-item class="md-3-line" ng-repeat="friend in user.friends.data" ng-click="displayFriendInfo(friend)">
                     <img ng-src="https://graph.facebook.com/{{friend.id}}/picture" class="md-avatar" alt="{{friend.id}}">
-                    <div class="md-list-item-text">
-                        <p>{{friend.name}}</p>
-                    </div>
+                    {{friend.name}}
                 </md-list-item>
             </md-list>
         </section>
