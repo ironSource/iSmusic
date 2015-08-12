@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <title>iSmusic</title>
+    <head>
+        <title>iSmusic</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
-    <link rel="stylesheet" href="lib/angular-material/angular-material.css"/>
-    <link rel="stylesheet" href="assets/app.css"/>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-  </head>
+        <link rel="stylesheet" href="assets/app.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-  <body ng-app="iSmusic" layout="row">
+
+    </head>
+
+    <body ng-app="iSmusic" layout="row">
 
     <div class="view" ui-view></div>
 
-    <script src="lib/angular/angular.min.js"></script>
-    <script src="lib/angular-animate/angular-animate.js"></script>
-    <script src="lib/angular-aria/angular-aria.js"></script>
-    <script src="lib/angular-material/angular-material.js"></script>
+        <script src="lib/angular/angular.min.js"></script>
+        <script src="lib/angular-animate/angular-animate.js"></script>
+        <script src="lib/angular-aria/angular-aria.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="lib/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+        <script src="music/Music.js"></script>
+        <script src="music/MusicController.js"></script>
+        <script src="music/MusicService.js"></script>
 
-    <script src="users/Users.js"></script>
-    <script src="users/UserController.js"></script>
-    <script src="users/UserService.js"></script>
-
-    <script src="app.js"></script>
-  </body>
+        <script src="app.js"></script>
+    </body>
 </html>
