@@ -20,7 +20,7 @@
         $scope.connectFacebook = function () {
             $http.get("http://dummy.com:3000/connect/facebook")
                 .then(function (res) {
-                    $log.info(res.data.name);
+                    console.log(res.data);
                     $scope.user = res.data;
                 });
 
