@@ -11,7 +11,9 @@ html, body {
   background: #000;
   height: 300px;
 }
-
+.transparent {
+  background: transparent;
+}
 .video-container iframe {
   position: absolute;
 }
