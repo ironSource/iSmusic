@@ -1,0 +1,27 @@
+{
+  "name": "ismusic",
+  "version": "0.0.1",
+  "description": "Hackathon music app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironSource/iSmusic.git"
+  },
+  "keywords": [
+    "Music",
+    "Social",
+    "ironSource"
+  ],
+  "author": "romanl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ironSource/iSmusic/issues"
+  },
+  "homepage": "https://github.com/ironSource/iSmusic#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
