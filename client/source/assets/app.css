@@ -5,3 +5,13 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
+
+.video-container {
+  width: 100%;
+  background: #000;
+  height: 300px;
+}
+
+.video-container iframe {
+  position: absolute;
+}

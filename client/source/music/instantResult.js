@@ -28,6 +28,8 @@ module.exports = function () {
                         q: suggestion,
                         type: 'video',
                         videoEmbeddable: true,
+                        videoSyndicated: true,
+                        videoLicense : 'youtube',
                         maxResults: maxResults || 5
                     });
                 })

@@ -1,12 +1,17 @@
 <md-content ng-controller="musicController" class="md-primary">
-    <div layout="row" ng-if="!video" style="background-color: black;width:100%;height: 300px"></div>
-    <md-subheader ng-if="video" class="md-primary">{{video.title}}</md-subheader>
-    <youtube-video
-            video-id="video.id"
-            player-vars="playerVars"
-            player-width="'100%'"
-            player-height="'300px'">
-    </youtube-video>
+    <div class="video-container">
+        <youtube-video
+                    video-id="video.id"
+                    player-vars="playerVars"
+                    player-width="'100%'"
+                    player-height="'300px'">
+            </youtube-video>
+        <md-subheader ng-if="video" class="md-primary">{{video.title}}</md-subheader>
+        <md-subheader ng-if="user" class="md-primary">{{user.name}}</md-subheader>
+        <md-button ng-click="connectFacebook()" ng-if="!user">
+            <md-icon class="fa fa-facebook md-18"</md-icon>
+        </md-button>
+    </div>
     <md-content layout="row">
         <md-input-container class="md-hue-1">
             <md-icon md-svg-icon="img/icons/menu.svg" class="menu"></md-icon>
@@ -14,29 +19,26 @@
         </md-input-container>
     </md-content>
     <section>
-        <md-subheader class="md-primary">friends</md-subheader>
-        <md-list ng-if="!friends" layout-padding>
-            <md-list-item class="md-3-line">
-                <md-button class="md-raised md-primary">login with facebook</md-button>
-            </md-list-item>
-        </md-list>
-        <!--<md-list ng-if="friends" layout-padding>-->
-            <!--<md-list-item class="md-3-line" ng-repeat="friend in friends">-->
-                <!--<div class="md-list-item-text">-->
-                    <!--<img ng-src="{{video.thumbnails[0]}}" class="md-avatar" alt="{{video.title}}">-->
-                    <!--<p>{{video.title}}</h2>-->
-                <!--</div>-->
-            <!--</md-list-item>-->
-        <!--</md-list>-->
-    </section>
-    <section>
-        <md-subheader class="md-primary">suggestions</md-subheader>
-        <md-list layout-padding>
-            <md-list-item class="md-3-line" ng-repeat="video in videos">
-                <div class="md-list-item-text">
-                    <p>{{video.title}}</p>
-                </div>
-            </md-list-item>
-        </md-list>
+        <section ng-if="!user.friends">
+            <md-subheader class="md-primary">friends</md-subheader>
+            <md-list ng-if="friends" layout-padding>
+                <md-list-item class="md-3-line" ng-repeat="friend in user.friends">
+                    <div class="md-list-item-text">
+                        <img ng-src="{{video.thumbnails[0]}}" class="md-avatar" alt="{{video.title}}">
+                        <p>{{video.title}}</h2>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </section>
+        <section>
+            <md-subheader class="md-primary">suggestions</md-subheader>
+            <md-list layout-padding>
+                <md-list-item class="md-3-line" ng-repeat="video in videos">
+                    <div class="md-list-item-text">
+                        <p>{{video.title}}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </section>
     </section>
 </md-content>

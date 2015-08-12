@@ -19,11 +19,10 @@ app.use(session({
 }))
 app.use(grant)
 
-
 app.get('/music', function (req, res) {
     FB.setAccessToken(req.session.access_token);
     FB.api('/me/music', function (data) {
-        if(!data || data.error) {
+        if (!data || data.error) {
             console.log(!data ? 'error occurred' : data.error);
             return res.end("Data Error!");
         }
@@ -37,7 +36,7 @@ app.get('/handle_facebook_callback', function (req, res) {
     req.session.access_token = req.query.access_token;
     FB.setAccessToken(req.query.access_token);
     FB.api('/me', {fields: ['id', 'name', 'email', 'cover', 'picture', 'music', 'friends']}, function (data) {
-        if(!data || data.error) {
+        if (!data || data.error) {
             console.log(!data ? 'error occurred' : data.error);
             return res.end("Data Error!");
         }
@@ -46,6 +45,6 @@ app.get('/handle_facebook_callback', function (req, res) {
 
 });
 
-app.listen(3000, function() {
+app.listen(3000, function () {
     console.log('Express server listening on port ' + 3000)
 })
