@@ -8,6 +8,14 @@
                 });
         };
 
+        $scope.playerVars = {
+		    controls: 0,
+		    iv_load_policy: 3,
+		    modestbranding: 1,
+		    showinfo: 0,
+		    autoplay: 1
+		};
+
         $scope.$watch('searchQuery', function (newVal, oldVal) {
             if (oldVal === newVal) return;
             $log.info(newVal);
@@ -17,6 +25,6 @@
 
     angular
         .module('music')
-        .controller('musicController', ['$scope', 'musicService', '$q', '$log',MusicController]);
+        .controller('musicController', ['$scope', 'musicService', '$q', '$log', MusicController]);
 
 })();

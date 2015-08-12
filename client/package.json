@@ -15,10 +15,12 @@
   },
   "window": {
     "title": "Loading...",
-    "show": true,
+    "resizable": false,
     "toolbar": true,
-    "frame": true,
-    "position": "center"
+    "frame": false,
+    "position": "center",
+    "height": 500,
+    "width": 300
   },
   "dependencies": {
     "angular": "^1.4.3",

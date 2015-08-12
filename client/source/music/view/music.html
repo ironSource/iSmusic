@@ -1,13 +1,12 @@
 <div ng-controller="musicController">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <i class="fa fa-youtube-play fa-lg"></i>
-                </a>
-            </div>
-        </div>
-    </nav>
-    <youtube-video video-id="video.id"></youtube-video>
+  <youtube-video
+    video-id="video.id"
+    player-vars="playerVars"
+    player-width="'100%'"
+    player-height="'300px'">
+  </youtube-video>
+  <md-input-container>
+    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
     <input class="form-control" ng-model="searchQuery"/>
+  </md-input-container>
 </div>
