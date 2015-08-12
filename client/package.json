@@ -1,0 +1,23 @@
+{
+  "name": "iSmusic",
+  "description": "ironLabs HACKDAY Music App",
+  "publisher_name": "ironLabs",
+  "version": "0.0.1",
+  "main": "source/index.html",
+  "focus": true,
+  "single-instance": true,
+  "webkit": {
+    "plugin": true,
+    "page-cache": true
+  },
+  "scripts": {
+    "postinstall": "bower i && npm ddp"
+  },
+  "window": {
+    "title": "Loading...",
+    "show": true,
+    "toolbar": true,
+    "frame": true,
+    "position": "center"
+  }
+}
