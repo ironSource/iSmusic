@@ -4,6 +4,8 @@
         $scope.search = function () {
             musicService.get($scope.searchQuery, 5)
                 .then(function (data) {
+                    $scope.videos = data;
+                    console.log(data[0])
                     $scope.video = data[0];
                 });
         };

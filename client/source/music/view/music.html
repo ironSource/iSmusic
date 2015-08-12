@@ -1,12 +1,42 @@
-<div ng-controller="musicController">
-  <youtube-video
-    video-id="video.id"
-    player-vars="playerVars"
-    player-width="'100%'"
-    player-height="'300px'">
-  </youtube-video>
-  <md-input-container>
-    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-    <input class="form-control" ng-model="searchQuery"/>
-  </md-input-container>
-</div>
+<md-content ng-controller="musicController" class="md-primary">
+    <div layout="row" ng-if="!video" style="background-color: black;width:100%;height: 300px"></div>
+    <md-subheader ng-if="video" class="md-primary">{{video.title}}</md-subheader>
+    <youtube-video
+            video-id="video.id"
+            player-vars="playerVars"
+            player-width="'100%'"
+            player-height="'300px'">
+    </youtube-video>
+    <md-content layout="row">
+        <md-input-container class="md-hue-1">
+            <md-icon md-svg-icon="img/icons/menu.svg" class="menu"></md-icon>
+            <input ng-model="searchQuery" ng-model-options="{ debounce:200}"/>
+        </md-input-container>
+    </md-content>
+    <section>
+        <md-subheader class="md-primary">friends</md-subheader>
+        <md-list ng-if="!friends" layout-padding>
+            <md-list-item class="md-3-line">
+                <md-button class="md-raised md-primary">login with facebook</md-button>
+            </md-list-item>
+        </md-list>
+        <!--<md-list ng-if="friends" layout-padding>-->
+            <!--<md-list-item class="md-3-line" ng-repeat="friend in friends">-->
+                <!--<div class="md-list-item-text">-->
+                    <!--<img ng-src="{{video.thumbnails[0]}}" class="md-avatar" alt="{{video.title}}">-->
+                    <!--<p>{{video.title}}</h2>-->
+                <!--</div>-->
+            <!--</md-list-item>-->
+        <!--</md-list>-->
+    </section>
+    <section>
+        <md-subheader class="md-primary">suggestions</md-subheader>
+        <md-list layout-padding>
+            <md-list-item class="md-3-line" ng-repeat="video in videos">
+                <div class="md-list-item-text">
+                    <p>{{video.title}}</p>
+                </div>
+            </md-list-item>
+        </md-list>
+    </section>
+</md-content>
