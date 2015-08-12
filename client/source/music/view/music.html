@@ -1,44 +1,51 @@
 <md-content ng-controller="musicController" class="md-primary">
     <div class="video-container">
         <youtube-video
-                    video-id="video.id"
-                    player-vars="playerVars"
-                    player-width="'100%'"
-                    player-height="'300px'">
-            </youtube-video>
+                video-id="activeVideo.id"
+                player-vars="playerVars"
+                player-width="'100%'"
+                player-height="'300px'">
+        </youtube-video>
         <!--<div id="placeholder"></div>-->
-        <md-subheader ng-if="video" class="md-primary transparent">{{video.title}}</md-subheader>
+        <md-subheader ng-if="activeVideo" class="md-primary transparent">{{activeVideo.title}}</md-subheader>
         <md-subheader ng-if="user" class="md-primary transparent">{{user.name}}</md-subheader>
         <md-button ng-click="connectFacebook()" ng-if="!user">
-            <md-icon class="fa fa-facebook md-18"</md-icon>
+            <md-icon class="fa fa-facebook md-18"
+            </md-icon>
         </md-button>
     </div>
-    <md-content layout="row">
-        <md-input-container class="md-hue-1">
-            <md-icon md-svg-icon="img/icons/menu.svg" class="menu"></md-icon>
-            <input ng-model="searchQuery" ng-model-options="{ debounce:200}"/>
-        </md-input-container>
-    </md-content>
 
-    <section>
-        <section ng-if="user.friends">
-            <md-subheader class="md-primary">friends</md-subheader>
-            <md-list ng-if="user.friends" layout-padding>
-                <md-list-item class="md-3-line" ng-repeat="friend in user.friends.data" ng-click="displayFriendInfo(friend)">
-                    <img ng-src="https://graph.facebook.com/{{friend.id}}/picture" class="md-avatar" alt="{{friend.id}}">
-                    {{friend.name}}
-                </md-list-item>
-            </md-list>
-        </section>
-        <section>
-            <md-subheader class="md-primary">suggestions</md-subheader>
-            <md-list layout-padding>
-                <md-list-item class="md-3-line" ng-repeat="video in videos">
-                    <div class="md-list-item-text">
-                        <p>{{video.title}}</p>
-                    </div>
-                </md-list-item>
-            </md-list>
-        </section>
-    </section>
+    <md-tabs md-selected="suggestions" md-align-tabs="top">
+        <md-tab id="music" ng-disabled="!videos">
+            <md-tab-label>music</md-tab-label>
+            <md-tab-body>
+                <md-content layout="row">
+                    <md-input-container class="md-hue-1">
+                        <md-icon md-svg-icon="img/icons/menu.svg" class="menu"></md-icon>
+                        <input ng-model="searchQuery" ng-model-options="{ debounce:200}"/>
+                    </md-input-container>
+                </md-content>
+                <md-list layout-padding>
+                    <md-list-item ng-class="{{activeVideo.id == video.id ? 'md-warn' : ''}}" class="md-3-line" ng-repeat="video in videos" ng-click="play(video)">
+                        <div class="md-list-item-text">
+                            <p>{{video.title}}</p>
+                        </div>
+                    </md-list-item>
+                </md-list>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="friends" ng-disabled="!user">
+            <md-tab-label>friends</md-tab-label>
+            <md-tab-body>
+                <md-list ng-if="user.friends" layout-padding>
+                    <md-list-item class="md-3-line" ng-repeat="friend in user.friends.data"
+                                  ng-click="displayFriendInfo(friend)">
+                        <img ng-src="https://graph.facebook.com/{{friend.id}}/picture" class="md-avatar"
+                             alt="{{friend.id}}">
+                        {{friend.name}}
+                    </md-list-item>
+                </md-list>
+            </md-tab-body>
+        </md-tab>
+    <md-tabs>
 </md-content>

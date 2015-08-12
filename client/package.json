@@ -20,7 +20,7 @@
     "frame": true,
 //    "frame": false,
     "position": "center",
-    "height": 500,
+    "height": 550,
     "width": 300
   },
   "dependencies": {
