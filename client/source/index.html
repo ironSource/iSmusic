@@ -1,21 +1,35 @@
-<!doctype html>
-<html lang="en" ng-app="app" ng-csp>
-<head>
-    <title>iSmusic</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1">
-    <link rel="stylesheet" href="css/style.css"/>
+<!DOCTYPE html>
+<html lang="en">
 
-    <script src="lib/gsap/src/minified/TweenMax.min.js"></script>
+  <head>
+    <title>iSmusic</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic">
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+
+  </head>
+
+  <body ng-app="iSmusic" layout="row">
+
+    <div class="view" ui-view></div>
+
     <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+
     <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 
-    <script src="js/app.js"></script>
-    <script src="js/controllers/MainCtrl.js"></script>
-</head>
-<body ng-controller="MainCtrl">
-    <div class="wrapper">
-        <div class="view" ui-view></div>
-    </div>
-</body>
+    <script src="users/Users.js"></script>
+    <script src="users/UserController.js"></script>
+    <script src="users/UserService.js"></script>
+
+    <script src="app.js"></script>
+  </body>
 </html>
