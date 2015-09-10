@@ -1,0 +1,1 @@
+{"name":"Ismusic","tagline":"hackathon music app.","body":"# iSmusic\r\nhackathon music app.\r\n- in order to run this app a dedicated server should be set-up to use facebookAPI's.\r\n- in order to run the client, run node-webkit with the client folder as the source.\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
