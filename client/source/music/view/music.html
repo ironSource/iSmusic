@@ -4,20 +4,15 @@
                 video-id="activeVideo.id"
                 player-vars="playerVars"
                 player-width="'100%'"
-                player-height="'300px'">
+                player-height="'200px'">
         </youtube-video>
-        <!--<div id="placeholder"></div>-->
+        <!--<md-subheader ng-if="user" class="md-primary transparent">{{user.name}}</md-subheader>-->
         <md-subheader ng-if="activeVideo" class="md-primary transparent">{{activeVideo.title}}</md-subheader>
-        <md-subheader ng-if="user" class="md-primary transparent">{{user.name}}</md-subheader>
-        <md-button ng-click="connectFacebook()" ng-if="!user">
-            <md-icon class="fa fa-facebook md-18"
-            </md-icon>
-        </md-button>
     </div>
 
     <md-tabs md-selected="suggestions" md-align-tabs="top">
-        <md-tab id="music" ng-disabled="!videos">
-            <md-tab-label>music</md-tab-label>
+        <md-tab id="music">
+            <md-tab-label class="no-select">music</md-tab-label>
             <md-tab-body>
                 <md-content layout="row">
                     <md-input-container class="md-hue-1">
@@ -34,8 +29,8 @@
                 </md-list>
             </md-tab-body>
         </md-tab>
-        <md-tab id="friends" ng-disabled="!user">
-            <md-tab-label>friends</md-tab-label>
+        <md-tab id="friends" ng-if="false">
+            <md-tab-label class="no-select">friends</md-tab-label>
             <md-tab-body>
                 <md-list ng-if="user.friends" layout-padding>
                     <md-list-item class="md-3-line" ng-repeat="friend in user.friends.data"
@@ -43,6 +38,35 @@
                         <img ng-src="https://graph.facebook.com/{{friend.id}}/picture" class="md-avatar"
                              alt="{{friend.id}}">
                         {{friend.name}}
+                        <md-icon class="fa fa-play md-hue-2" md-align="center end"></md-icon>
+                        <!--<md-button class="md-hue-2"></md-button>-->
+                    </md-list-item>
+                </md-list>
+            </md-tab-body>
+        </md-tab>
+        <md-tab id="fb" ng-click="connectFacebook()" >
+            <md-tab-label ng-if="user" class="no-select">
+                {{user.name}}
+                <md-icon ng-if="!user" class="fa fa-facebook md-9"/>
+            </md-tab-label>
+            <md-tab-body ng-if="user">
+                <md-subheader md-style="md-hue-1">Friends</md-subheader>
+                <md-list ng-if="user.friends" layout-padding>
+                    <md-list-item class="md-3-line" ng-repeat="friend in user.friends.data"
+                                  ng-click="displayFriendInfo(friend)">
+                        <img ng-src="https://graph.facebook.com/{{friend.id}}/picture" class="md-avatar"
+                             alt="{{friend.id}}">
+                        {{friend.name}}
+                        <md-icon class="fa fa-play md-hue-2" md-align="center end"></md-icon>
+                        <!--<md-button class="md-hue-2"></md-button>-->
+                    </md-list-item>
+                </md-list>
+                <md-divider></md-divider>
+                <md-subheader md-style="md-hue-1"r>My likes</md-subheader>
+                <md-list ng-if="user.music" layout-padding>
+                    <md-list-item class="md-3-line" ng-repeat="music in user.music.data"
+                            ng-click="search(music.name)">
+                        {{music.name}}
                     </md-list-item>
                 </md-list>
             </md-tab-body>

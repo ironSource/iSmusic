@@ -2,6 +2,7 @@ html, body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     height: 100%;
+    background: #333;
     margin: 0px;
     padding: 0px;
 }
@@ -9,7 +10,7 @@ html, body {
 .video-container {
     width: 100%;
     background: #000;
-    height: 300px;
+    height: 200px;
 }
 
 .transparent {
@@ -18,4 +19,8 @@ html, body {
 
 .video-container iframe {
     position: absolute;
+}
+
+md-tabs {
+    height: 350px;
 }

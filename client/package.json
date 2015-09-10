@@ -17,8 +17,7 @@
     "title": "Loading...",
     "resizable": false,
     "toolbar": true,
-    "frame": true,
-//    "frame": false,
+    "frame": false,
     "position": "center",
     "height": 550,
     "width": 300
